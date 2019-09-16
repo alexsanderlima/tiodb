@@ -16,3 +16,10 @@ execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" -S . -B build
 if(result)
         message(FATAL_ERROR "CMake step for libboost failed: ${result}")
 endif()
+
+execute_process(
+        COMMAND ${CMAKE_COMMAND} --build build
+        WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/third_party/boost/
+)
+
+
