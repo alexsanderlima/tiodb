@@ -1,5 +1,4 @@
 message("VS version: ${MSVC_VERSION}")
-message("${boost_toolset}")
 
 if(MSVC_VERSION EQUAL 1600) #VS2010
     set(BOOST_TOOLSET "msvc-10.0")
@@ -14,6 +13,8 @@ elseif(MSVC_VERSION GREATER 1910 AND MSVC_VERSION LESS 1920) #VS2017
 elseif(MSVC_VERSION GREATER 1919) #VS2019
     set(BOOST_TOOLSET "msvc-14.2")
 endif()
+
+message("Setting boost_toolset: ${BOOST_TOOLSET}")
 
 # Download and unpack lib boost at configure time
 configure_file(${PROJECT_SOURCE_DIR}/cmake/LibBoost.cmake.in ${PROJECT_SOURCE_DIR}/third_party/boost/CMakeLists.txt @ONLY)

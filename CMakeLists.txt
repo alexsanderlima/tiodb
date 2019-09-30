@@ -3,4 +3,5 @@ project (tiodb CXX)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
-add_subdirectory(src)
+add_subdirectory(src/client/c)
+add_subdirectory(src/server/tio)
