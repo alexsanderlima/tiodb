@@ -1,8 +1,18 @@
 message("VS version: ${MSVC_VERSION}")
 message("${boost_toolset}")
 
-if(MSVC_VERSION EQUAL 1916) #VS2017
+if(MSVC_VERSION EQUAL 1600) #VS2010
+    set(BOOST_TOOLSET "msvc-10.0")
+elseif(MSVC_VERSION EQUAL 1700) #VS2012
+    set(BOOST_TOOLSET "msvc-11.0")
+elseif(MSVC_VERSION EQUAL 1800) #VS2013
+    set(BOOST_TOOLSET "msvc-12.0")
+elseif(MSVC_VERSION EQUAL 1900) #VS2015
+    set(BOOST_TOOLSET "msvc-14.0")
+elseif(MSVC_VERSION GREATER 1910 AND MSVC_VERSION LESS 1920) #VS2017
     set(BOOST_TOOLSET "msvc-14.1")
+elseif(MSVC_VERSION GREATER 1919) #VS2019
+    set(BOOST_TOOLSET "msvc-14.2")
 endif()
 
 # Download and unpack lib boost at configure time
